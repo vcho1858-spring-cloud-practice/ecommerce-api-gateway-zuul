@@ -16,7 +16,13 @@ spring:
           uri: http://user-service/
           predicates:
             - Path=/user/**
+          filters:
+            - AddRequestHeader=user-request, user-request-header
+            - AddResponseHeader=user-response, user-response-header
         - id: ecommerce-catalog-service
           uri: http://catalog-service/
           predicates:
             - Path=/catalog/**
+          filters:
+            - AddRequestHeader=catalog-request, catalog-request-header
+            - AddResponseHeader=catalog-response, catalog-response-header
