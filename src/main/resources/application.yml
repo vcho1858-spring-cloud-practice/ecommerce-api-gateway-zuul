@@ -17,12 +17,14 @@ spring:
           predicates:
             - Path=/user/**
           filters:
-            - AddRequestHeader=user-request, user-request-header
-            - AddResponseHeader=user-response, user-response-header
+#            - AddRequestHeader=user-request, user-request-header
+#            - AddResponseHeader=user-response, user-response-header
+            - CustomFilter
         - id: ecommerce-catalog-service
           uri: http://catalog-service/
           predicates:
             - Path=/catalog/**
           filters:
-            - AddRequestHeader=catalog-request, catalog-request-header
-            - AddResponseHeader=catalog-response, catalog-response-header
+#            - AddRequestHeader=catalog-request, catalog-request-header
+#            - AddResponseHeader=catalog-response, catalog-response-header
+            - CustomFilter
