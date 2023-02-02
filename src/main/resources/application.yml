@@ -1,0 +1,22 @@
+server:
+  port: 8000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: false
+    register-with-eureka: false
+spring:
+  application:
+    name: ecommerce-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: ecommerce-user-service
+          uri: http://user-service/
+          predicates:
+            - Path=/user/**
+        - id: ecommerce-catalog-service
+          uri: http://catalog-service/
+          predicates:
+            - Path=/catalog/**
